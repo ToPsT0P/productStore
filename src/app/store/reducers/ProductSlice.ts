@@ -1,16 +1,18 @@
-import { IProduct } from "../../models/IProduct.ts";
+import { IProduct } from "../../../shared/models/IProduct.ts";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 interface ProductState {
     products: IProduct[];
     isLoading: boolean;
     error: string;
+    sorted: boolean;
 }
 
 const initialState: ProductState = {
     products: [],
     isLoading: false,
     error: '',
+    sorted: false,
 }
 
 export const productSlice = createSlice({
@@ -32,22 +34,26 @@ export const productSlice = createSlice({
             state.error = action.payload
         },
 
-        productLike(state, action: PayloadAction<number>) {
-            const index = action.payload - 1;
-            if (state.products[index]) {
-                state.products[index].liked = true;
-            }
-        },
-
-        productUnLike(state, action: PayloadAction<number>) {
-            const index = action.payload - 1;
-            if (state.products[index]) {
-                state.products[index].liked = false;
-            }
+        productLikeOrUnlike(state, action: PayloadAction<number>) {
+            const id = action.payload;
+            state.products.forEach((element) => {
+                if (element.id === id) {
+                    element.liked = !element.liked
+                }
+            })
         },
 
         productDelete(state, action:PayloadAction<number>) {
+            const id = action.payload;
+            state.products.forEach((element, i) => {
+                if (element.id === id) {
+                    state.products.splice(i, 1)
+                }
+            })
+        },
 
+        sortedChange(state){
+            state.sorted = !state.sorted
         }
     }
 })

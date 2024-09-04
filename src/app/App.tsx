@@ -1,9 +1,9 @@
 import {RouterProvider} from "react-router-dom";
-import router from "../router/router.tsx";
-import axios from "axios";
-import {useAppDispatch, useAppSelector} from "../hooks/redux.ts";
+import router from "./router/router.tsx";
+import {useAppDispatch} from "../shared/hooks/redux.ts";
 import {useEffect} from "react";
-import {fetchProducts} from "../store/reducers/ActionCreater.ts";
+import {fetchProducts} from "./store/reducers/ActionCreater.ts";
+
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
     }, []);
 
   return (
-      <div className="overflow-x-hidden">
+      <div className="">
         <RouterProvider router={router}/>
       </div>
   )

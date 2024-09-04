@@ -1,7 +1,7 @@
 import {createBrowserRouter} from "react-router-dom";
-import ProductsPage from "../pages/productPage/ProductsPage.tsx";
-import ErrorPage from "../pages/errorPage/ErrorPage.tsx";
-import CurrentProductPage from "../pages/currentProductPage/CurrentProductPage.tsx";
+import ProductsPage from "../../pages/productPage/ProductsPage.tsx";
+import ErrorPage from "../../pages/errorPage/ErrorPage.tsx";
+import CurrentProductPage from "../../pages/currentProductPage/CurrentProductPage.tsx";
 
 
 const router = createBrowserRouter([

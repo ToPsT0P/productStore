@@ -1,6 +1,6 @@
 import {AppDispatch} from "../store.ts";
 import axios from "axios";
-import {IProduct} from "../../models/IProduct.ts";
+import {IProduct} from "../../../shared/models/IProduct.ts";
 import {productSlice} from "./ProductSlice.ts";
 
 
