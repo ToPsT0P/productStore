@@ -54,6 +54,10 @@ export const productSlice = createSlice({
 
         sortedChange(state){
             state.sorted = !state.sorted
+        },
+
+        createProduct(state, action:PayloadAction<IProduct>){
+            state.products.push(action.payload)
         }
     }
 })
