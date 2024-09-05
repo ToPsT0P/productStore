@@ -9,7 +9,7 @@ const ProductsPage = () => {
 
     return (
         <div style={{width: "95vw"}} className="h-screen">
-                     <div className="w-screen h-screen p-10 gap-3 flex-wrap flex justify-center">
+                     <div style={{width: "97vw"}} className="h-screen p-10 gap-3 flex-wrap flex justify-center">
                     <Navbar/>
                     {sorted
                         ? <>
