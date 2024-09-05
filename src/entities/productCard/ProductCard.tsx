@@ -13,7 +13,7 @@ const ProductCard = (item) => {
 
     return (
         <div className="h-80 w-64 border-b-gray-900 border-x-2 border-y-2 flex p-5 cursor-pointer flex-wrap">
-            <Link className="h-4/5 flex flex-wrap justify-center" to={`/products/${data.id}`}>
+            <Link className="h-4/5 flex flex-wrap justify-center" to={`/productStore/products/${data.id}`}>
                 <div className="w-full h-fit flex justify-center">
                     {data.image ? <img className="h-28" src={data.image} alt=""/> : <img src={withoutPhoto} alt=""/>}
                 </div>

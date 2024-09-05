@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
         <div className="h-20 border-b border-b-blue-900 left-0 top-0 w-full flex items-center gap-6 overflow-x-hidden">
-            <Link to={"/create-product"} className="cursor-pointer hover:text-red-500 duration-150">Создать товар</Link>
+            <Link to={"/productStore/create-product"} className="cursor-pointer hover:text-red-500 duration-150">Создать товар</Link>
 
             {sorted
                 ? <p className="cursor-pointer hover:text-red-500 duration-150" onClick={() => {

@@ -23,7 +23,7 @@ const CreateProductPage = () => {
 
     return (
         <div className="p-12">
-            <Link className="hover:text-red-500 duration-150" to={"/products"}>Назад</Link>
+            <Link className="hover:text-red-500 duration-150" to={"/productStore/products"}>Назад</Link>
             <div className="border-2 border-gray-200 rounded-full w-72 h-72 mb-10 bg-gray-600 flex justify-center flex-wrap items-center">
                 <p className="text-white p-5 cursor-default w-4/6 ">Сейчас добавить фото вашего товара нет возможности</p>
                 <IoMdPhotos className="fill-white h-20 w-20" />
