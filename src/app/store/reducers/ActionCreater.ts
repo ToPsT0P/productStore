@@ -15,3 +15,13 @@ export const fetchProducts = () => async (dispatch: AppDispatch)  => {
 
     }
 }
+
+export const fetchOneProduct = (id) => async (dispatch: AppDispatch) => {
+    try {
+        dispatch(productSlice.actions.productsFetching())
+        const response = await axios.get<IProduct>(`https://fakestoreapi.com/products/${id}`)
+        dispatch(productSlice.actions.fetchingCurrentProducts(response.data))
+    }catch (e){
+
+    }
+}
