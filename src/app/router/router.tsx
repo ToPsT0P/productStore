@@ -7,12 +7,12 @@ import CreateProductPage from "../../pages/createProductPage/CreateProductPage.t
 
 const router = createBrowserRouter([
     {
-      path:"/productStore",
+      path:"/",
       element:  <ErrorPage/>  ,
       errorElement: <ErrorPage/>,
     },
     {
-     path: "/productStore/products",
+     path: "/productStore/",
      element: <ProductsPage/>
     },
     {
