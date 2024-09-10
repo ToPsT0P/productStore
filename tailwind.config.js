@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        "allSide": "10 35px 60px -15px rgba(0, 0, 0, 0.3)"
+      }
+    },
     colors: {
       myDark: "#4B535A",
       myGray: "#A3A5A4",

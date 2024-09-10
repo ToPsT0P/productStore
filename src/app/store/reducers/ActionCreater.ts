@@ -10,7 +10,7 @@ export const fetchProducts = () => async (dispatch: AppDispatch)  => {
         const response = await axios.get<IProduct[]>("https://fakestoreapi.com/products")
         dispatch(productSlice.actions.productsFetchingSuccess(response.data))
 
-    }catch (error: any){
+    }catch (error){
         dispatch(productSlice.actions.productsFetchingError(error.message))
 
     }
