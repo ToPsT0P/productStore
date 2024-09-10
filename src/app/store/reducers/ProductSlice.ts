@@ -79,7 +79,6 @@ export const productSlice = createSlice({
 
         fetchingCurrentProducts(state, action:PayloadAction<IProduct>) {
             state.product = action.payload
-
         },
     }
 })

@@ -1,39 +1,78 @@
-import {useState} from 'react';
-import {Link} from "react-router-dom";
-import {IoMdPhotos} from "react-icons/io";
-import {useDispatch} from "react-redux";
-import {IProductCreate} from "../../shared/models/IProductCreate.ts";
-import {productSlice} from "../../app/store/reducers/ProductSlice.ts";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import {IoIosArrowRoundBack, IoMdPhotos} from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { IProductCreate } from "../../shared/models/IProductCreate.ts";
+import { productSlice } from "../../app/store/reducers/ProductSlice.ts";
 
 const CreateProductPage = () => {
+    const [title, setTitle] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
+    const [price, setPrice] = useState<number>(0);
 
-    const [title, setTitle] = useState<string>("dwsdwa")
-    const [description, setDescription] = useState<string>("hgfsd")
-    const [price, setPrice] = useState<number>(449)
-    let finalObject:IProductCreate ={
+    let finalObject: IProductCreate = {
         price,
         description,
-        title
-    }
+        title,
+    };
+
     const dispatch = useDispatch();
 
     const addingProduct = () => {
-        dispatch(productSlice.actions.createProduct(finalObject))
-    }
+        dispatch(productSlice.actions.createProduct(finalObject));
+    };
 
     return (
-        <div className="p-12">
-            <Link className="hover:text-red-500 duration-150" to={"/productStore/products"}>Назад</Link>
-            <div className="border-2 border-gray-200 rounded-full w-72 h-72 mb-10 bg-gray-600 flex justify-center flex-wrap items-center">
-                <p className="text-white p-5 cursor-default w-4/6 ">Сейчас добавить фото вашего товара нет возможности</p>
-                <IoMdPhotos className="fill-white h-20 w-20" />
+        <div className="w-screen min-h-screen bg-myGray p-10 flex flex-col items-center">
+            <div className="w-full max-w-6xl mb-8">
+                <Link
+                    to="/productStore"
+                    className="flex items-center text-myDark hover:text-myWhite transition-all duration-300"
+                >
+                    <IoIosArrowRoundBack className="h-8 w-8 mr-2" />
+                    <p className="text-lg font-medium">Home</p>
+                </Link>
             </div>
-            <div className="gap-4 flex flex-wrap w-1/4">
-                <input className="p-2 w-full outline-none border-2 rounded" onChange={(e) => {setTitle(e.target.value)}} placeholder="Название" type="text"/>
-                <input className="p-2 w-full outline-none border-2 rounded" onChange={(e) => {setDescription(e.target.value)}} placeholder="Описание" type="text"/>
-                <input className="p-2 w-full outline-none border-2 rounded" onChange={(e) => {setPrice(e.target.value)}} placeholder="Цена" type="number"/>
+
+            <div className="bg-white w-full max-w-4xl p-10 rounded-xl shadow-lg flex flex-col items-center">
+                {/* Фото товара */}
+                <div className="w-full max-w-xs h-64 bg-myDark rounded-lg flex flex-col justify-center items-center mb-8">
+                    <p className="text-myWhite mb-4 text-center">
+                        Временно невозможно добавить фото товара
+                    </p>
+                    <IoMdPhotos className="text-myWhite h-20 w-20" />
+                </div>
+
+                {/* Поля ввода */}
+                <div className="w-full max-w-lg flex flex-col gap-6">
+                    <input
+                        className="p-4 border-2 border-myDark rounded-xl outline-none focus:border-myLightBrown transition-all duration-300"
+                        onChange={(e) => setTitle(e.target.value)}
+                        placeholder="Название товара"
+                        type="text"
+                    />
+                    <textarea
+                        className="p-4 border-2 border-myDark rounded-xl outline-none focus:border-myLightBrown transition-all duration-300 resize-none"
+                        onChange={(e) => setDescription(e.target.value)}
+                        placeholder="Описание товара"
+                        rows={5}
+                    ></textarea>
+                    <input
+                        className="p-4 border-2 border-myDark rounded-xl outline-none focus:border-myLightBrown transition-all duration-300"
+                        onChange={(e) => setPrice(Number(e.target.value))}
+                        placeholder="Цена товара"
+                        type="number"
+                    />
+                </div>
+
+                {/* Кнопка создания товара */}
+                <button
+                    className="mt-10 bg-myDark text-myWhite py-3 px-6 rounded-xl shadow-md hover:bg-myLightBrown hover:text-myDark transition-all duration-300"
+                    onClick={addingProduct}
+                >
+                    Создать товар
+                </button>
             </div>
-            <button className="mt-5 border text-gray-900 p-3 border-red-500 rounded hover:bg-red-400 duration-200" onClick={() => {addingProduct()}}>Создать товар</button>
         </div>
     );
 };

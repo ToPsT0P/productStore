@@ -16,9 +16,13 @@ export default {
       myDarkBrown: "#88817A",
       myWhite: "#FCFCF2",
       myLightBrown: "#EDDEC8",
-      myInputColor: "#959897"
+      myInputColor: "#959897",
+      white: "#FFFFFF",
+      myRed: "#c30042",
     }
   },
-  plugins: [],
+  plugins: [
+      require('tailwind-scrollbar')
+  ],
 }
 
