@@ -1,18 +1,18 @@
 import { useAppDispatch, useAppSelector } from "../../shared/hooks/redux.ts";
-import { useEffect } from "react";
-import { fetchOneProduct } from "../../app/store/reducers/ActionCreater.ts";
+import {useEffect} from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import withoutPhoto from "../../shared/placeholder.png";
+import {fetchOneProduct} from "../../app/store/reducers/ActionCreater.ts";
 
 const CurrentProductPage = () => {
     const dispatch = useAppDispatch();
-    const { product } = useAppSelector((state) => state.productReducer);
+    const { product, products } = useAppSelector((state) => state.productReducer);
     const id = Number(window.location.pathname.split("/")[3]);
 
     useEffect(() => {
-        dispatch(fetchOneProduct(id));
-    }, [dispatch, id]);
+        dispatch(fetchOneProduct(id, products))
+    }, []);
 
     return (
         <div className="w-screen min-h-screen bg-myGray p-10 flex flex-col items-center">

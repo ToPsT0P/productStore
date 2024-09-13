@@ -1,11 +1,10 @@
-import {useAppDispatch, useAppSelector} from "../../shared/hooks/redux.ts";
+import {useAppDispatch} from "../../shared/hooks/redux.ts";
 import {productSlice} from "../../app/store/reducers/ProductSlice.ts";
 import {Link} from "react-router-dom";
 import {CiHeart, CiSearch, CiSquarePlus} from "react-icons/ci";
 
 const Navbar = () => {
 
-     const {sorted} = useAppSelector(state => state.productReducer)
     const dispatch = useAppDispatch()
 
     return (
