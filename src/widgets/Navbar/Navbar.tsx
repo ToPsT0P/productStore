@@ -1,7 +1,8 @@
 import {useAppDispatch} from "../../shared/hooks/redux.ts";
-import {productSlice} from "../../app/store/reducers/ProductSlice.ts";
+import { productSlice } from "../../app/store/reducers/ProductSlice.ts";
 import {Link} from "react-router-dom";
 import {CiHeart, CiSearch, CiSquarePlus} from "react-icons/ci";
+import { productFindSLice } from "../../app/store/reducers/ProductFindSlice.ts"
 
 const Navbar = () => {
 
@@ -18,7 +19,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="w-full h-5/6 flex items-center rounded-xl border-none hover:drop-shadow-lg px-3 duration-300 bg-myInputColor">
-                <input placeholder="Search the site" type="text" className="w-full rounded bg-myInputColor text-myWhite placeholder-myWhite h-full outline-none "/>
+                <input onChange={(e) => {dispatch(productFindSLice.actions.changeProductName(e.target.value))}} placeholder="Search the site" type="text" className="w-full rounded bg-myInputColor text-myWhite placeholder-myWhite h-full outline-none "/>
                 <CiSearch className="fill-myWhite w-6 h-6" />
             </div>
             <div className="flex flex-nowrap gap-x-3 h-full items-center">

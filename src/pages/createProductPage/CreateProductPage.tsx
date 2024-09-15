@@ -9,11 +9,13 @@ const CreateProductPage = () => {
     const [title, setTitle] = useState<string>("");
     const [description, setDescription] = useState<string>("");
     const [price, setPrice] = useState<number>(0);
+    const [image, setImage] = useState<string>("")
 
     let finalObject: IProductCreate = {
         price,
         description,
         title,
+        image
     };
 
     const dispatch = useDispatch();
@@ -35,15 +37,14 @@ const CreateProductPage = () => {
             </div>
 
             <div className="bg-white w-full max-w-4xl p-10 rounded-xl shadow-lg flex flex-col items-center">
-                {/* Фото товара */}
-                <div className="w-full max-w-xs h-64 bg-myDark rounded-lg flex flex-col justify-center items-center mb-8">
+
+                <div className="w-full max-w-xs h-64 bg-myDark rounded-lg flex cursor-pointer flex-col justify-center items-center mb-8">
                     <p className="text-myWhite mb-4 text-center">
-                        Временно невозможно добавить фото товара
+                        Click to add ur image
                     </p>
                     <IoMdPhotos className="text-myWhite h-20 w-20" />
                 </div>
 
-                {/* Поля ввода */}
                 <div className="w-full max-w-lg flex flex-col gap-6">
                     <input
                         className="p-4 border-2 border-myDark rounded-xl outline-none focus:border-myLightBrown transition-all duration-300"
@@ -65,7 +66,6 @@ const CreateProductPage = () => {
                     />
                 </div>
 
-                {/* Кнопка создания товара */}
                 <button
                     className="mt-10 bg-myDark text-myWhite py-3 px-6 rounded-xl shadow-md hover:bg-myLightBrown hover:text-myDark transition-all duration-300"
                     onClick={addingProduct}
